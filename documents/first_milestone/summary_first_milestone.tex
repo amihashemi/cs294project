@@ -1,0 +1,104 @@
+% Final project for CS 294-73 at Berkeley
+% Amirreza Hashemi and Júlio Caineta
+% 2017
+
+% Use the standard article template.
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage[super]{nth}
+\usepackage[numbers]{natbib}
+\usepackage{authblk}
+% The geometry package allows for easy page formatting.
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage{amssymb}
+\usepackage{amsmath}	
+% Load up special logo commands.
+\usepackage{doc}
+
+% Package for formatting URLs.
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{lscape}
+
+%Gantt chart package
+\usepackage{xcolor,colortbl}
+
+% A package which allows simple repetition counts, and some useful commands
+
+\usepackage{forloop}
+\newcounter{loopcntr}
+\newcommand{\rpt}[2][1]{%
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{#2}%
+}
+\newcommand{\on}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{gray}}
+}
+\newcommand{\onx}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&\cellcolor{orange}}
+}
+\newcommand{\off}[1][1]{
+  \forloop{loopcntr}{0}{\value{loopcntr}<#1}{&}
+}
+
+\definecolor{orange}{HTML}{FF7F00}
+
+%%
+
+% Packages and definitions for graphics files.
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+%\pagestyle{empty}
+
+%
+% Set the title, author, and date.
+%
+\title{Implementation of a second order projection method for viscous incompressible flow} 
+\author[1]{Amirreza Hashemi}
+\author[2]{Júlio Caineta}
+\affil[1]{Computational Modeling and Simulation Program, \authorcr
+	Department of Mechanical Engineering and Materials Science, University of Pittsburgh}
+\affil[2]{Computational Modeling and Simulation Program, \authorcr
+	Department of Geology and Environmental Science, University of Pittsburgh}
+\affil[ ]{E-mail: \tt {\{amh299, julio.caineta\}@pitt.edu}}
+\date{October \nth{30} 2017}
+
+\hypersetup
+{
+	pdfauthor={Amirreza Hashemi and Júlio Caineta},
+	pdfsubject={CS294-73 Project summary},
+	pdftitle={CS294-73 Project summary}
+}
+
+%
+% The document proper.
+%
+\begin{document}
+
+% Add the title section
+\maketitle
+\thispagestyle{empty}.
+
+%\pagenumbering{roman}
+
+%
+% Body text.
+%
+\pagebreak
+\section*{Summary} 
+
+
+In the final project, we plan to solve the two dimensional Navier-Stokes equations based on \cite{Bell1991a}. The method is a second-order fractional step scheme, where diffusion-convection equations are firstly solved to determine intermediate velocities, which are then projected onto the space of divergence-free vector fields. The discretization of the projection operator introduced in the original paper will be replaced with an approximate projection derived by Lai \cite{Lai1993a}. Lai's projection method is a modification that accounts for the non-zero divergence of the velocity and has a second order accuracy both in space and time. Finally, convergence and performance of our numerical implementation will be verified by applying the method to vortex spindown in a box, similarly to the test case introduced in the original paper. 
+
+%\pagebreak
+
+\bibliographystyle{phjcp}
+\bibliography{summary}
+
+\end{document}
+
+\end{document}

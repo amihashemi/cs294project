@@ -1,0 +1,14 @@
+Milestone 1:
+What test cases do you plan to use to validate your results?
+-Max
+
+The test case will be the same as in the original 1991 paper: vortex spindown in a box. Please refer to line 8 of the summary.
+-Ami and Júlio
+
+Milestone 2:
+Clear description of math and algorithmic precedures. I don't think solid boundary condition on all walls make sense (solid wall is Neumann Boundary Condition, you can't deterministically solve a system using all Neumann BCs). Try swapping one of the boundaries to be constant pressure (Dirichlet BC).
+-Max
+
+We will consider a no slip wall, such that the velocities are zero on the boundaries (Dirichlet BC). Please refer to line 6 of the introduction.
+Thank you for your comments.
+- Ami and Júlio
